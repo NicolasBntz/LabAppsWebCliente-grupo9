@@ -1,3 +1,5 @@
 import { getProducts } from "./api.js";
 
-getProducts();
+getProducts().then((products) => {
+  console.log(products);
+});
