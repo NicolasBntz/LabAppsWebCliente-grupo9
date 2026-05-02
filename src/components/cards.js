@@ -1,4 +1,5 @@
 import { getProducts } from "../api.js";
+import { Modal } from "./modal.js";
 
 export function RenderCards(){
     let productList = document.querySelector('#product-list')
