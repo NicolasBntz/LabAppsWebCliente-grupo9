@@ -4,13 +4,13 @@ export function Modal(product){
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">${product.title}}</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">${product.title}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
         <div class="modal-body">
             <div class="row">
                 <div class="col-md-6">
-                    <img-src "${product.image}" class="img-fluid" alt="${product.title}">
+                    <img src="${product.image}" class="img-fluid" alt="${product.title}">
                 </div>
                 <div class="col-md-6">
                     <p>${product.description}</p>
