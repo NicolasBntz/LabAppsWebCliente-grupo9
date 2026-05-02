@@ -31,6 +31,6 @@ export function Modal(product){
 
     container.innerHTML = template;
 
-    const bootstrapModal = new bootstrapModal.Modal(container);
+    const bootstrapModal = new bootstrap.Modal(container);
     bootstrapModal.show();
 }
