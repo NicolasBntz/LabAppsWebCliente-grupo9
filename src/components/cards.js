@@ -13,7 +13,7 @@ export function RenderCards(){
                              <h5 class="card-title text-truncate">${p.title}</h5>
                         </div>
                         <div class="mb-3">
-                            <button class="btn btn-dark"> Más detalles</button>
+                            <button class="btn btn-dark" id="btn-${p.id}"> Más detalles</button>
                         </div>
                     </div>
                 </div>
@@ -21,5 +21,13 @@ export function RenderCards(){
         });
     
         productList.innerHTML = template;
+
+        // Eventos onclick de los botones:
+        products.forEach((p)=> {
+            let btn = document.querySelector(`#btn-${p.id}`);
+            btn.addEventListener('click', () => {
+                Modal(p);
+            });
+        });
     });
 }
