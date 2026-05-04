@@ -8,11 +8,16 @@ export function initLocalStorage() {
 }
 
 export function getFromLocalStorage() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY));
+    const data = localStorage.getItem(STORAGE_KEY);
+    return data ? JSON.parse(data) : [];
 }
 
 export function saveToLocalStorage(item){
     let cart = getFromLocalStorage();
     cart.push(item);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+}
+
+export function setItemLocalStorage(item){
+     localStorage.setItem(STORAGE_KEY, JSON.stringify(item));
 }
