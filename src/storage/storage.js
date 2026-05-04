@@ -21,3 +21,15 @@ export function saveToLocalStorage(item){
 export function setItemLocalStorage(item){
      localStorage.setItem(STORAGE_KEY, JSON.stringify(item));
 }
+
+export function updateItemLocalStorage(itemId, qtty){
+     let dataStorage = getFromLocalStorage();
+     let idx = dataStorage.findIndex((item) => item.id === itemId);
+     if (idx != -1) 
+        { 
+            dataStorage[idx].qtty = parseInt(dataStorage[idx].qtty) + parseInt(qtty);
+            setItemLocalStorage(dataStorage);
+        }
+     return idx;
+
+}

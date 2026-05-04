@@ -1,4 +1,4 @@
-import { getFromLocalStorage, saveToLocalStorage, setItemLocalStorage, } from "../storage/storage.js";
+import { getFromLocalStorage, saveToLocalStorage, setItemLocalStorage, updateItemLocalStorage, } from "../storage/storage.js";
 import { addEventListeners ,contador } from "./contador.js";
 
 export function Modal(product){
@@ -36,14 +36,16 @@ export function Modal(product){
     container.innerHTML = template;
 
     addEventListeners(product, 1);
-
     let btnAddToCart = document.querySelector(`#addToCartBtn-${product.id}`);
     btnAddToCart.addEventListener('click', () => {
-        product.qtty = parseInt(document.querySelector(`#contador-${product.id}`).textContent);
-        let dataStorage = getFromLocalStorage();
-        let filtered = dataStorage.filter((p) => p.id !== product.id);
-        filtered.push(product);
-        setItemLocalStorage(filtered);
+        let inpcantidad = document.querySelector(`#contador-${product.id}`);
+        let qtty = parseInt(inpcantidad.textContent);
+        let idx = updateItemLocalStorage(product.id, qtty);
+        console.log(idx);
+        if (idx === -1) {
+            product.qtty = qtty;
+            saveToLocalStorage(product);
+        }
 
     });
 
