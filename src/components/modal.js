@@ -1,4 +1,5 @@
 import { getFromLocalStorage, saveToLocalStorage, setItemLocalStorage, updateItemLocalStorage, } from "../storage/storage.js";
+import { cartList } from "./cart.js";
 import { addEventListeners ,contador } from "./contador.js";
 
 export function Modal(product){
@@ -46,7 +47,7 @@ export function Modal(product){
             product.qtty = qtty;
             saveToLocalStorage(product);
         }
-
+          cartList();
     });
 
     const bootstrapModal = new bootstrap.Modal(container);
