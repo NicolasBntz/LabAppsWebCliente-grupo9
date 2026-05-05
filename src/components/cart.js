@@ -1,4 +1,4 @@
-import {getFromLocalStorage, setItemLocalStorage} from '../storage/storage.js';
+import {getFromLocalStorage, setItemLocalStorage, deleteItemLocalStorage} from '../storage/storage.js';
 
 export function cartList() {
     let offcanvasbody = document.querySelector('#offcanvasRight .offcanvas-body');
@@ -44,8 +44,7 @@ function eventsOnClick(productsStorage){
         productsStorage.forEach((item) => {
             let btn = document.querySelector(`button[data-id="${item.id}"]`);
             btn.addEventListener('click', () => {
-                let newDataStorage = productsStorage.filter((p) => p.id !== item.id);
-                setItemLocalStorage(newDataStorage);
+                deleteItemLocalStorage(item.id);
                 cartList();
             });
         });
