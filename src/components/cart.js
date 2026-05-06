@@ -1,4 +1,5 @@
 import {getFromLocalStorage, setItemLocalStorage, deleteItemLocalStorage} from '../storage/storage.js';
+import { toast } from './toast.js';
 
 export function cartList() {
     let offcanvasbody = document.querySelector('#offcanvasRight .offcanvas-body');
@@ -45,6 +46,7 @@ function eventsOnClick(productsStorage){
             let btn = document.querySelector(`button[data-id="${item.id}"]`);
             btn.addEventListener('click', () => {
                 deleteItemLocalStorage(item.id);
+                toast(`${item.title} eliminado del carrito`, 'danger');
                 cartList();
             });
         });

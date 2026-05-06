@@ -1,6 +1,7 @@
 import { getFromLocalStorage, saveToLocalStorage, setItemLocalStorage, updateItemLocalStorage, } from "../storage/storage.js";
 import { cartList } from "./cart.js";
 import { addEventListeners ,contador } from "./contador.js";
+import { toast } from "./toast.js";
 
 export function Modal(product){
     let container = document.querySelector('#productModal');
@@ -47,6 +48,7 @@ export function Modal(product){
             product.qtty = qtty;
             saveToLocalStorage(product);
         }
+          toast(`${product.title} agregado al carrito`, 'dark');    
           cartList();
     });
 
