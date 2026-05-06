@@ -26,13 +26,13 @@ getProducts().then((products) => {
 
         let mens_clothing = document.querySelector('#mens-clothing');
         mens_clothing.addEventListener('click', () => {
-            let result = products.filter((p) => p.category == 'mens-clothing');
+            let result = products.filter((p) => p.category == "men's clothing");
             return RenderCards(result);
         });
 
         let womens_clothing = document.querySelector('#womens-clothing');
         womens_clothing.addEventListener('click', () => {
-            let result = products.filter((p) => p.category == 'womens-clothing');
+            let result = products.filter((p) => p.category == "women's clothing");
             return RenderCards(result);
         });
 
