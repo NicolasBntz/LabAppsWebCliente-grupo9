@@ -7,17 +7,20 @@ export function RenderCards(products){
         products.forEach((p) => {
             template += `
                 <div class="col">
-                    <div class="card justify-content-center align-items-center" style="width: 300px;">  
-                        <img src="${p.image}" class="card-img-top" alt="${p.title}" style="height: 300px; width: 250px; object-fit: contain;">
-                        <div class="card-body" style="width: 300px;">
-                             <h5 class="card-title text-truncate">${p.title}</h5>
-                        </div>
-                        <div class="mb-3">
-                            <button class="btn btn-primary" id="btn-${p.id}"> Más detalles</button>
+                <div class="card h-100 shadow-sm tarjeta-efecto border-0">
+                    
+                    <img src="${p.image}" class="card-img-top p-3" alt="${p.title}" style="height: 250px; object-fit: contain;">
+                    
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-truncate">${p.title}</h5>
+                        
+                        <div class="mt-auto pt-3">
+                            <button class="btn btn-primary w-100" id="btn-${p.id}">Más detalles</button>
                         </div>
                     </div>
                 </div>
-            `;    
+            </div>
+        `;    
         });
     
         productList.innerHTML = template;

@@ -3,3 +3,17 @@
   font-weight: 600;
   font-style: normal;
 }
+
+.tarjeta-efecto {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-efecto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2) !important; 
+    cursor: pointer;
+}
+
+.tarjeta-efecto img {
+    border-radius: 25px;
+}

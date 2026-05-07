@@ -15,7 +15,7 @@ export function cartList() {
 
     dataStorage.forEach((item) => {
         template += `
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3 tarjeta-efecto border-0" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4 d-flex align-items-center justify-content-center">
                         <img src="${item.image}" class="img-fluid rounded-start" style="height: 80px; object-fit: contain;" alt="${item.title}">
