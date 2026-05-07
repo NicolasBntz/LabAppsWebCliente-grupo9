@@ -17,3 +17,40 @@
 .tarjeta-efecto img {
     border-radius: 25px;
 }
+
+.card-img-top {
+    height: 250px;
+    object-fit: contain; 
+    padding: 15px; 
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+}
+
+.btn-primary {
+    transition: all 0.3s ease; 
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+footer {
+    border-top: 1px solid #e9ecef;
+}
+
+[data-bs-theme="dark"] footer {
+    background-color: #15171a !important; 
+    border-top: 1px solid #343a40 !important;
+}
+
+[data-bs-theme="dark"] footer p,
+[data-bs-theme="dark"] footer a {
+    color: #adb5bd !important;
+}
