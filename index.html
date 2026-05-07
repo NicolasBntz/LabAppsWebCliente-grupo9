@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ISTEA Laboratorio Aplicaciones Web Cliente | Grupo 9</title>
+    <link rel="icon" href="data:,">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
@@ -36,10 +37,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#" id="womens-clothing">Women's clothing</a>
                         </li>
-                        <li>
-                            <button class="btn btn-outline-dark border-0" type="button" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                                    <i class="bi bi-cart-plus"></i>
+                        <li class="d-flex align-items-center">
+                            <button class="btn btn-outline-dark border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                 <i class="bi bi-cart-plus"></i>
+                            </button>
+
+                            <button class="btn btn-outline-dark border-0 ms-2" id="theme-toggle" type="button" aria-label="Cambiar tema">
+                                <i class="bi bi-moon-stars-fill" id="theme-icon"></i>
                             </button>
                         </li>
                     </ul>

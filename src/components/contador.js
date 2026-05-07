@@ -1,11 +1,11 @@
 export function contador(product) {
     let template = `
      <div class ="d-flex justify-content-center align-items-center gap-3 my-3">
-           <button id= "decrementBtn-${product.id}" class= "btn btn-dark">-</button>
+           <button id= "decrementBtn-${product.id}" class= "btn btn-outline-primary">-</button>
            <div>
            <span id="contador-${product.id}">1</span>
            </div>
-           <button id= "incrementBtn-${product.id}" class= "btn btn-dark">+</button>
+           <button id= "incrementBtn-${product.id}" class= "btn btn-outline-primary">+</button>
      </div>
     `; 
 

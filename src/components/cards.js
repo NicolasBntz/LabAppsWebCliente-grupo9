@@ -13,7 +13,7 @@ export function RenderCards(products){
                              <h5 class="card-title text-truncate">${p.title}</h5>
                         </div>
                         <div class="mb-3">
-                            <button class="btn btn-dark" id="btn-${p.id}"> Más detalles</button>
+                            <button class="btn btn-primary" id="btn-${p.id}"> Más detalles</button>
                         </div>
                     </div>
                 </div>

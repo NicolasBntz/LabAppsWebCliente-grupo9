@@ -103,3 +103,34 @@ if (confirmCheckoutBtn) {
         if (modalInstance) modalInstance.hide();
     });
 }
+
+// Modo oscuro:
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const htmlElement = document.documentElement; 
+
+const savedTheme = localStorage.getItem('theme') || 'light';
+htmlElement.setAttribute('data-bs-theme', savedTheme);
+actualizarIcono(savedTheme);
+
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        htmlElement.setAttribute('data-bs-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        actualizarIcono(newTheme);
+    });
+}
+
+function actualizarIcono(theme) {
+    if (themeIcon) {
+        if (theme === 'dark') {
+            themeIcon.className = 'bi bi-sun-fill'; 
+        } else {
+            themeIcon.className = 'bi bi-moon-stars-fill'; 
+        }
+    }
+}
