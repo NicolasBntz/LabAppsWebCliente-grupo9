@@ -5,7 +5,9 @@ export function cartList() {
     let offcanvasbody = document.querySelector('#offcanvasRight .offcanvas-body');
     let template = '';
     let dataStorage = getFromLocalStorage();
-     
+    
+    let subtotal = 0;
+
 
     // Si el carrito está vacío, mostramos un mensaje
     if (dataStorage.length === 0) {
@@ -14,6 +16,9 @@ export function cartList() {
     }
 
     dataStorage.forEach((item) => {
+
+        subtotal += item.price * item.qtty;
+
         template += `
             <div class="card mb-3 tarjeta-efecto border-0" style="max-width: 540px;">
                 <div class="row g-0">
@@ -36,6 +41,15 @@ export function cartList() {
             </div>
         `;
     });
+
+    template += `
+    <div class="mt-4 border-top pt-3">
+        <div class="d-flex justify-content-between">
+            <h5>Subtotal:</h5>
+            <h5>$${subtotal.toFixed(2)}</h5>
+        </div>
+    </div>
+    `;
 
     offcanvasbody.innerHTML = template;
     eventsOnClick(dataStorage);
