@@ -38,5 +38,8 @@ export function deleteItemLocalStorage(itemId){
       let productsStorage = getFromLocalStorage();
       let newDataStorage = productsStorage.filter((p) => p.id !== itemId);
       setItemLocalStorage(newDataStorage);
+}
 
+export function clearLocalStorage() {
+    setItemLocalStorage([]);
 }

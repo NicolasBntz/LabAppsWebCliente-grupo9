@@ -56,7 +56,59 @@
             <!-- modal --> 
         <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
         </div>
-            <!-- offcanvas carrito -->
+
+        <!-- Modal Confirmación Vaciar Carrito -->
+        <div class="modal fade" id="confirmClearCartModal" tabindex="-1" aria-labelledby="confirmClearCartModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmClearCartModalLabel">Confirmación</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que deseas vaciar todos los productos del carrito?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" id="confirm-clear-btn">Sí, vaciar carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Finalizar Compra -->
+        <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="checkoutModalLabel">Finalizar Compra</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4 class="mb-4" id="checkout-total">Total: $0</h4>
+                        <h6>Seleccione medio de pago:</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="credit" value="Crédito" checked>
+                            <label class="form-check-label" for="credit">Tarjeta de Crédito</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="debit" value="Débito">
+                            <label class="form-check-label" for="debit">Tarjeta de Débito</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="transfer" value="Transferencia">
+                            <label class="form-check-label" for="transfer">Transferencia Bancaria</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-success" id="confirm-checkout-btn">Confirmar Compra</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- offcanvas carrito -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             
             <div class="offcanvas-header">
@@ -70,8 +122,8 @@
             
             <!-- Le agregué la clase p-3 para que los botones tengan un margen interno prolijo -->
             <div class="offcanvas-footer p-3"> 
-                <button class="btn btn-primary w-100" id="checkout-btn">Finalizar compra</button>
-                <button class="btn btn-secondary w-100 mt-2" id="clear-cart-btn">Vaciar carrito</button>
+                <button class="btn btn-primary w-100" id="checkout-btn" data-bs-toggle="modal" data-bs-target="#checkoutModal">Finalizar compra</button>
+                <button class="btn btn-secondary w-100 mt-2" id="clear-cart-btn" data-bs-toggle="modal" data-bs-target="#confirmClearCartModal">Vaciar carrito</button>
             </div>
 
         </div>

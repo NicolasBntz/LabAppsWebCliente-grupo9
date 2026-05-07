@@ -1,6 +1,7 @@
 import { RenderCards } from "./components/cards.js";
-import { initLocalStorage } from "./storage/storage.js";
+import { initLocalStorage, clearLocalStorage, getFromLocalStorage } from "./storage/storage.js";
 import { cartList } from "./components/cart.js";
+import { toast } from "./components/toast.js";
 import { getProducts } from "./services/api.js";
 import { filterProducts } from "./utils/category-filters.js";
 
@@ -57,5 +58,48 @@ const openCartBtn = document.querySelector('[data-bs-target="#offcanvasRight"]')
 if (openCartBtn) {
     openCartBtn.addEventListener('click', () => {
         cartList();
+    });
+}
+
+// Lógica para vaciar carrito con confirmación:
+const confirmClearBtn = document.querySelector('#confirm-clear-btn');
+if (confirmClearBtn) {
+    confirmClearBtn.addEventListener('click', () => {
+        clearLocalStorage();
+        cartList();
+        toast('Carrito vaciado con éxito', 'warning');
+        
+        const modalEl = document.getElementById('confirmClearCartModal');
+        const modalInstance = bootstrap.Modal.getInstance(modalEl);
+        if (modalInstance) modalInstance.hide();
+    });
+}
+
+// Lógica para finalizar compra:
+const checkoutBtn = document.querySelector('#checkout-btn');
+if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
+        const cart = getFromLocalStorage();
+        const total = cart.reduce((acc, item) => acc + (item.price * item.qtty), 0);
+        const totalEl = document.getElementById('checkout-total');
+        if (totalEl) {
+            totalEl.innerText = `Total a pagar: $${total.toFixed(2)}`;
+        }
+    });
+}
+
+const confirmCheckoutBtn = document.querySelector('#confirm-checkout-btn');
+if (confirmCheckoutBtn) {
+    confirmCheckoutBtn.addEventListener('click', () => {
+        const selectedMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+        
+        clearLocalStorage();
+        cartList(); // Limpia la vista del carrito
+        
+        toast(`Compra confirmada con ${selectedMethod}. ¡Gracias por elegirnos!`, 'success');
+
+        const modalEl = document.getElementById('checkoutModal');
+        const modalInstance = bootstrap.Modal.getInstance(modalEl);
+        if (modalInstance) modalInstance.hide();
     });
 }
